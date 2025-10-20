@@ -15,10 +15,15 @@ public class Application {
         Parser parser = new Parser();
         Calculating calc = new Calculating();
 
-        ArrayList<Integer> nums = parser.makeNums(input);
-        int result = calc.sum(nums);
+        try {
+            ArrayList<Integer> nums = parser.makeNums(input);
+            int result = calc.sum(nums);
+            System.out.println("결과 : " + result);
+        } catch (IllegalArgumentException e) {
 
-        System.out.println("결과 : " + result);
+            System.out.println("에러: " + e.getMessage());
+            System.exit(1);
+        }
 
 
 
